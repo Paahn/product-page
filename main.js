@@ -4,7 +4,7 @@ const app = new Vue({
     brand: 'Master of Puppets',
     product: 'Socks',
     description: 'Warm fuzzy socks, that hug your feet, and give them colour.',
-    image: './socks.jpg',
+    selectedVariant: 0,
     link: 'https://www.amazon.ca/s?k=socks&ref=nb_sb_noss_2',
     inventory: 20,
     onSale: true,
@@ -28,8 +28,9 @@ const app = new Vue({
     addToCart() {
       this.cart += 1
     },
-    updateProduct(variantImage) {
-      this.image = variantImage
+    updateProduct(index) {
+      this.selectedVariant = index
+      console.log(index)
     },
     removeFromCart() {
       this.cart -= 1
