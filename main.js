@@ -11,11 +11,13 @@ const app = new Vue({
     variants: [
       {
         variantId: 2234,
-        variantColour: "green"
+        variantColour: 'green',
+        variantImage: './socks.jpg',
       },
       {
         variantId: 2235,
-        variantColour: "blue"
+        variantColour: "blue",
+        variantImage: './blue-socks.jpg',
       }
     ],
     sizes: ["freakishly small", "small", "medium", "large", "sasquatch"],
