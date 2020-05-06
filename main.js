@@ -6,6 +6,7 @@ const app = new Vue({
     image: './socks.jpg',
     link: 'https://www.amazon.ca/s?k=socks&ref=nb_sb_noss_2',
     inventory: 50,
-    onSale: true
+    onSale: true,
+    details: ["80% cotton", "10% pineapple", "10% rabbit", "all-purpose"]
   }
 })
