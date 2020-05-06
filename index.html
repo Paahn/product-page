@@ -34,6 +34,11 @@
           {{ description }}
         </p>
         <a :href="link" target="_blank">More products like this</a>
+        <button v-on:click="cart+=1">Add to cart</button>
+
+        <div class="cart">
+          <p>Cart({{cart}})</p>
+        </div>
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
