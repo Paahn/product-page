@@ -30,7 +30,6 @@ const app = new Vue({
     },
     updateProduct(index) {
       this.selectedVariant = index
-      console.log(index)
     },
     removeFromCart() {
       this.cart -= 1
@@ -39,6 +38,9 @@ const app = new Vue({
   computed: {
     title() {
       return this.brand + ' ' + this.product
+    },
+    image() {
+      return this.variants[this.selectedVariant].variantImage
     }
   }
 })
