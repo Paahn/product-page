@@ -20,5 +20,10 @@ const app = new Vue({
     ],
     sizes: ["freakishly small", "small", "medium", "large", "sasquatch"],
     cart: 0
+  },
+  methods: {
+    addToCart: function () {
+      this.cart += 1
+    }
   }
 })
