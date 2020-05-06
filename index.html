@@ -37,7 +37,9 @@
           {{ description }}
         </p>
         <a :href="link" target="_blank">More products like this</a>
-        <button @click="addToCart">Add to cart</button>
+        <button @click="addToCart"
+        :disabled="inventory<=0"
+        :class="{disabledButton: inventory<=0}">Add to cart</button>
         <button @click="removeFromCart">Remove from cart</button>
 
         <div class="cart">
