@@ -56,10 +56,6 @@ button {
   font-size: 14px;
 } 
 
-.disabledButton {
-  background-color: #d8d8d8;
-}
-
 .outStock {
   text-decoration: line-through;
 }
