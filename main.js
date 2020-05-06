@@ -6,7 +6,6 @@ const app = new Vue({
     description: 'Warm fuzzy socks, that hug your feet, and give them colour.',
     selectedVariant: 0,
     link: 'https://www.amazon.ca/s?k=socks&ref=nb_sb_noss_2',
-    inventory: 20,
     onSale: true,
     details: ["80% cotton", "10% pineapple", "10% rabbit", "all-purpose"],
     variants: [
@@ -14,11 +13,13 @@ const app = new Vue({
         variantId: 2234,
         variantColour: 'green',
         variantImage: './socks.jpg',
+        variantQuantity: 23
       },
       {
         variantId: 2235,
         variantColour: "blue",
         variantImage: './blue-socks.jpg',
+        variantQuantity: 0
       }
     ],
     sizes: ["freakishly small", "small", "medium", "large", "sasquatch"],
@@ -41,6 +42,9 @@ const app = new Vue({
     },
     image() {
       return this.variants[this.selectedVariant].variantImage
+    },
+    inventory() {
+      return this.variants[this.selectedVariant].variantQuantity
     }
   }
 })
