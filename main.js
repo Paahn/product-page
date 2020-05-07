@@ -31,6 +31,14 @@ Vue.component('product-review', {
   </p>
 
   <p>
+    <label for="recommend">Would you recommend this product?</label>
+    <select id="recommend" v-model="recommend">
+      <option>Yes</option>
+      <option>No</option>
+    </select>
+  </p>
+
+  <p>
     <input type="submit" value="Submit">
   </p>
 
