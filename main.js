@@ -42,6 +42,7 @@ Vue.component('product-review', {
         review: this.review,
         rating: this.rating
       }
+      this.$emit('review-submitted', productReview)
       // rest the values after submitting the form
       this.name = null
       this.review = null
@@ -105,7 +106,7 @@ Vue.component('product', {
         <button @click="removeFromCart"
         v-if="inventory>0">Remove from cart</button>
 
-        <product-review></product-review>
+        <product-review @review-submitted="addReview"></product-review>
       </div>
   `,
   data() {
@@ -131,7 +132,13 @@ Vue.component('product', {
           variantQuantity: 0
         }
       ],
-      sizes: ["freakishly small", "small", "medium", "large", "sasquatch"]
+      sizes: ["freakishly small", "small", "medium", "large", "sasquatch"],
+      reviews: [
+        { name: "Yoda",
+        review: "mmmm like these socks, I do.",
+        rating: 5
+      }
+      ]
     }
   },
   methods: {
@@ -143,6 +150,9 @@ Vue.component('product', {
     },
     removeFromCart() {
       this.$emit('remove-from-cart', this.variants[this.selectedVariant].variantId)
+    },
+    addReview(productReview) {
+      this.reviews.push(productReview)
     }
   },
   computed: {
