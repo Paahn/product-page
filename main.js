@@ -117,5 +117,13 @@ const app = new Vue({
   data: {
     premium: true,
     cart: 0
+  },
+  methods: {
+    updateAddingToCart() {
+      this.cart += 1
+    }, 
+    updateRemovingFromCart() {
+      this.cart -= 1
+    }
   }
 })
