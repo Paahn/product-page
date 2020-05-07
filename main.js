@@ -13,7 +13,7 @@ Vue.component('product-review', {
 
   <p>
     <label for="rating">Rating: </label>
-    <select id="rating" v-model="rating">
+    <select id="rating" v-model.number="rating">
       <option>5</option>
       <option>4</option>
       <option>3</option>
@@ -30,7 +30,9 @@ Vue.component('product-review', {
   `,
   data() {
     return {
-      name: null
+      name: null,
+      review: "",
+      rating: 0
     }
   }
 })
