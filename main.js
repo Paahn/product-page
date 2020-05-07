@@ -63,6 +63,8 @@ Vue.component('product', {
         v-if="inventory>0">Add to cart</button>
         <button @click="removeFromCart"
         v-if="inventory>0">Remove from cart</button>
+
+        <product-review></product-review>
       </div>
   `,
   data() {
