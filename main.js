@@ -1,19 +1,27 @@
 Vue.component('product-review', {
   template: `
   <form class="review-form" @submit.prevent="onSubmit">
+  
+  <p v-if="errors.length">
+    <b>The following errors have occured:</b>
+    <ul>
+      <li v-for="error in errors">{{ error }}</li>
+    </ul>
+  </p>
+  
   <p>
     <label for="name">Name: </label>
-    <input id="name" v-model="name" required>
+    <input id="name" v-model="name">
   </p>
 
   <p>
     <label for="name">Review: </label>
-    <textarea id="review" v-model="review" required></textarea>
+    <textarea id="review" v-model="review"></textarea>
   </p>
 
   <p>
     <label for="rating">Rating: </label>
-    <select id="rating" v-model.number="rating" required>
+    <select id="rating" v-model.number="rating">
       <option>5</option>
       <option>4</option>
       <option>3</option>
@@ -32,21 +40,28 @@ Vue.component('product-review', {
     return {
       name: null,
       review: null,
-      rating: null
+      rating: null,
+      errors: []
     }
   },
   methods: {
     onSubmit() {
-      let productReview = {
+      if (this.name && this.review && this.rating) {
+        let productReview = {
         name: this.name,
         review: this.review,
         rating: this.rating
       }
       this.$emit('review-submitted', productReview)
-      // rest the values after submitting the form
+      // reset the values after submitting the form
       this.name = null
       this.review = null
       this.rating = null
+      } else {
+        if (!this.name) this.errors.push("Name required.")
+        if (!this.review) this.errors.push("You need to write a review.")
+        if (!this.name) this.errors.push("Rate your experience.")
+      }
     }
   }
 })
@@ -113,7 +128,7 @@ Vue.component('product', {
             <li v-for="review in reviews">
               <p>{{ review.name }}</p>
               <p>Rating: {{ review.rating }}</p>
-              <p>{{ review.review }}
+              <p>{{ review.review}}
             </li>
           </ul>
         </div>
