@@ -52,10 +52,6 @@ Vue.component('product', {
         v-if="inventory>0">Add to cart</button>
         <button @click="removeFromCart"
         v-if="inventory>0">Remove from cart</button>
-
-        <div class="cart">
-          <p>Cart({{cart}})</p>
-        </div>
       </div>
   `,
   data() {
