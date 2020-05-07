@@ -49,6 +49,7 @@ Vue.component('product-review', {
       name: null,
       review: null,
       rating: null,
+      recommend: null,
       errors: []
     }
   },
@@ -58,13 +59,15 @@ Vue.component('product-review', {
         let productReview = {
         name: this.name,
         review: this.review,
-        rating: this.rating
+        rating: this.rating,
+        recommend: this.recommend
       }
       this.$emit('review-submitted', productReview)
       // reset the values after submitting the form
       this.name = null
       this.review = null
       this.rating = null
+      this.recommend = null
       } else {
         if (!this.name) this.errors.push("Name required.")
         if (!this.review) this.errors.push("You need to write a review.")
@@ -136,7 +139,8 @@ Vue.component('product', {
             <li v-for="review in reviews">
               <p>{{ review.name }}</p>
               <p>Rating: {{ review.rating }}</p>
-              <p>{{ review.review}}
+              <p>{{ review.review}}</p>
+              <p v-if="review.recommend">Recommends: {{ review.recommend }}</p>
             </li>
           </ul>
         </div>
