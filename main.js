@@ -91,5 +91,8 @@ Vue.component('product', {
 
 
 const app = new Vue({
-  el: '#app'
+  el: '#app',
+  data: {
+    premium: true
+  }
 })
