@@ -1,3 +1,17 @@
+Vue.component('product-details', {
+  props: {
+    details: {
+      type: Array,
+      required: true
+    }
+  },
+  template: `
+  <ul>
+    <li v-for="detail in details"> {{ detail }} </li>
+  </ul>
+  `
+})
+
 Vue.component('product', {
   props: {
     premium: {
@@ -18,9 +32,9 @@ Vue.component('product', {
         <p v-else :class="{outStock: inventory<=0}">Out of Stock</p>
         <span v-if="onSale">On Sale!!!</span>
         <p>Shipping: {{ shipping }} </p>
-        <ul>
-          <li v-for="detail in details"> {{ detail }} </li>
-        </ul>
+
+        <product-details :details="details"></product-details>
+
         <div v-for="(variant, index) in variants"
              :key="variant.variantId"
              class="color-box"
