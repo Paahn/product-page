@@ -17,7 +17,7 @@ Vue.component('product', {
         <p v-else-if=" inventory <= 10 && inventory > 0">Few items left!</p>
         <p v-else :class="{outStock: inventory<=0}">Out of Stock</p>
         <span v-if="onSale">On Sale!!!</span>
-        <p>User is premium: {{ premium }} </p>
+        <p>Shipping: {{ shipping }} </p>
         <ul>
           <li v-for="detail in details"> {{ detail }} </li>
         </ul>
@@ -91,6 +91,12 @@ Vue.component('product', {
     },
     inventory() {
       return this.variants[this.selectedVariant].variantQuantity
+    },
+    shipping() {
+      if (this.premium) {
+        return "Free"
+      }
+      return '$4.00'
     }
   }
 })
