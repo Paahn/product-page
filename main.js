@@ -106,6 +106,12 @@ Vue.component('product', {
         <button @click="removeFromCart"
         v-if="inventory>0">Remove from cart</button>
 
+        <div>
+          <h2>Reviews</h2>
+          <p v-if="reviews.length==0">There are no reviews yet</p>
+          {{ reviews }}
+        </div>
+
         <product-review @review-submitted="addReview"></product-review>
       </div>
   `,
@@ -133,12 +139,7 @@ Vue.component('product', {
         }
       ],
       sizes: ["freakishly small", "small", "medium", "large", "sasquatch"],
-      reviews: [
-        { name: "Yoda",
-        review: "mmmm like these socks, I do.",
-        rating: 5
-      }
-      ]
+      reviews: []
     }
   },
   methods: {
