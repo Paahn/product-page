@@ -77,8 +77,7 @@ Vue.component('product', {
           variantQuantity: 0
         }
       ],
-      sizes: ["freakishly small", "small", "medium", "large", "sasquatch"],
-      cart: 0
+      sizes: ["freakishly small", "small", "medium", "large", "sasquatch"]
     }
   },
   methods: {
@@ -116,6 +115,7 @@ Vue.component('product', {
 const app = new Vue({
   el: '#app',
   data: {
-    premium: true
+    premium: true,
+    cart: 0
   }
 })
