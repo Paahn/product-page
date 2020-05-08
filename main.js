@@ -1,3 +1,18 @@
+Vue.component('product-tabs', {
+  template: `
+  <div>
+    <span class="tab"
+          v-for="(tab, index) in tabs" :key="index"> {{ tab }}</span>
+  </div>
+  `,
+  data() {
+    return {
+      tabs: ['Reviews', 'Make a Review'],
+      selectedTab: 'Reviews'
+    }
+  }
+})
+
 Vue.component('product-review', {
   template: `
   <form class="review-form" @submit.prevent="onSubmit">
@@ -131,6 +146,8 @@ Vue.component('product', {
         v-if="inventory>0">Add to cart</button>
         <button @click="removeFromCart"
         v-if="inventory>0">Remove from cart</button>
+
+        <product-tabs></product-tabs>
 
         <div>
           <h2>Reviews</h2>
