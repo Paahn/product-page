@@ -2,7 +2,10 @@ Vue.component('product-tabs', {
   template: `
   <div>
     <span class="tab"
-          v-for="(tab, index) in tabs" :key="index"> {{ tab }}</span>
+          :class="{ activeTab: selectedTab === tab}"
+          v-for="(tab, index) in tabs" 
+          :key="index"
+          @click="selectedTab = tab"> {{ tab }}</span>
   </div>
   `,
   data() {
