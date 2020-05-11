@@ -150,11 +150,11 @@ Vue.component('product', {
       <h1>
         {{ title }}
       </h1>
-      <p v-if="inventory > 10">In Stock</p>
-      <p v-else-if=" inventory <= 10 && inventory > 0">Few items left!</p>
-      <p v-else :class="{outStock: inventory<=0}">Out of Stock</p>
+      <p v-if="inventory > 10" class="stock">In Stock</p>
+      <p v-else-if=" inventory <= 10 && inventory > 0" class="stock">Few items left!</p>
+      <p v-else :class="{outStock: inventory<=0}" class="stock">Out of Stock</p>
       <span v-if="onSale">On Sale!!!</span>
-      <p>Shipping: {{ shipping }} </p>
+      <p class="stock">Shipping: {{ shipping }} </p>
       <product-details :details="details"></product-details>
       <div v-for="(variant, index) in variants"
            :key="variant.variantId"
@@ -162,12 +162,17 @@ Vue.component('product', {
            :style="{backgroundColor: variant.variantColour}"
            @mouseover="updateProduct(index)">
       </div>
-      <ul>
-        <li v-for="size in sizes">{{ size }}</li>
-      </ul>
-      <p>
-        {{ description }}
-      </p>
+      <div class="sizes">
+        <ul>
+          <li v-for="size in sizes">{{ size }}</li>
+        </ul>
+      </div>
+      
+      <div class="description">
+        <p>
+          {{ description }}
+        </p>
+      </div>
       <a :href="link" target="_blank">More products like this</a>
       <button @click="addToCart"
       v-if="inventory>0">Add to cart</button>

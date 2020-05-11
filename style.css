@@ -12,6 +12,8 @@ body {
 
 .product {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-flow: wrap;
   padding: 1rem;
 }
@@ -86,4 +88,16 @@ textarea {
 .activeTab {
   color: #16C0B0;
   text-decoration: underline;
+}
+
+.description {
+  background-color: #84CF6A;
+}
+
+.sizes {
+  float: right;
+}
+
+.stock {
+  padding: 2em;
 }
